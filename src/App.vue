@@ -1,60 +1,60 @@
 <template>
   <v-app>
+    <v-system-bar app>
+      <h2>Report</h2>
+      <v-spacer></v-spacer>
+      <v-icon>mdi-square</v-icon>
+      <v-icon>mdi-circle</v-icon>
+      <v-icon>mdi-triangle</v-icon>
+    </v-system-bar>
     <v-app-bar
       app
-      color="primary"
-      dark
+      color="white"
     >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+        <v-responsive >
+          <v-text-field
+            prepend-icon="mdi-search-web"
+            dense
+            hide-details
+            filled
+          ></v-text-field>
+        </v-responsive>
+    </v-app-bar>   
+   
+    <v-main class="grey lighten-3">
+      <v-container>
+        <v-row no-gutters>
+          <v-col cols="1">
+            <v-sheet >
+              <SidebarList/>
+            </v-sheet>
+          </v-col>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
-      <HelloWorld/>
+          <v-col cols="6">
+            <v-sheet>
+              <Dashboard/>
+            </v-sheet>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import Dashboard from './components/Pages/Dashboard';
+import SidebarList from './components/Sidebar/List';
+
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    Dashboard,
+    SidebarList
   },
 
   data: () => ({
-    //
   }),
 };
 </script>
